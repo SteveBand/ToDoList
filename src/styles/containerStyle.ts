@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.section`
+  position: relative;
   min-width: 500px;
   width: 700px;
   height: 500px;
   background-color: #ffffff;
-  box-shadow: 0px 0px 17px 4px rgba(0, 0, 0, 0.49);
+  box-shadow: 0px 0px 17px 4px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
 `;
 
