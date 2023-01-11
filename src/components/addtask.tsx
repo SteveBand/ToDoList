@@ -1,8 +1,18 @@
 import React from "react";
 import { AddTaskWrapper } from "../styles/addtaskStyle";
 
-export const AddTask: React.FC = () => {
-    return <AddTaskWrapper>
-      <button>Add Task</button>
-  </AddTaskWrapper>;
+interface Props {
+  activeModal: boolean;
+  setActiveModal: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export const AddTask: React.FC<Props> = ({ activeModal, setActiveModal }) => {
+  const handleModal = (): void => {
+    setActiveModal(true);
+  };
+  return (
+    <AddTaskWrapper>
+      <button onClick={handleModal}>Add Task</button>
+    </AddTaskWrapper>
+  );
 };

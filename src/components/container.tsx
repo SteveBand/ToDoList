@@ -6,17 +6,19 @@ import { NavBar } from "./navbar";
 import { Todo, List } from "./todo";
 export const Container: React.FC = () => {
   const [todoList, setTodoList] = useState<List>([]);
-  const [activeModal, setActiveModal] = useState<boolean>(true);
+  const [activeModal, setActiveModal] = useState<boolean>(false);
 
   return (
     <Wrapper>
       <NavBar />
       <Todo todoList={todoList} setTodoList={setTodoList} />
-      <AddTask />
+      <AddTask activeModal={activeModal} setActiveModal={setActiveModal} />
       {activeModal ? (
         <AddTaskModal
           activeModal={activeModal}
           setActiveModal={setActiveModal}
+          setTodoList={setTodoList}
+          todoList={todoList}
         />
       ) : null}
     </Wrapper>

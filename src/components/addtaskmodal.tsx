@@ -1,33 +1,76 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ModalWrapper } from "../styles/addtaskStyle";
 import { BiCalendar, BiUser } from "react-icons/bi";
-import { click } from "@testing-library/user-event/dist/click";
+import { List } from "./todo";
+import { formmatedDate } from "../utils/dateformat";
+import { nanoid } from "nanoid";
 
 interface Props {
   activeModal: boolean;
   setActiveModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setTodoList: React.Dispatch<React.SetStateAction<List>>;
+  todoList: List;
 }
 
 export const AddTaskModal: React.FC<Props> = ({
   activeModal,
   setActiveModal,
+  setTodoList,
+  todoList,
 }) => {
+  const [title, setTitle] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
+  const [date, setDate] = useState<string>();
   let modalRef = useRef<React.RefObject<HTMLElement> | any>();
+
+  const handleSubmit = async () => {
+    let newTodo = {
+      title: title,
+      description: description,
+      date: formmatedDate(),
+      completed: false,
+      id: `${title}${nanoid()}`,
+    };
+    setTodoList((list) => [newTodo, ...list]);
+  };
 
   useEffect(() => {
     let clickModal = (e: any) => {
-      if (!modalRef.current.contains(e.target)) {
+      if (activeModal && !modalRef.current.contains(e.target)) {
         setActiveModal(false);
       }
     };
+    document.addEventListener("mousedown", clickModal);
 
-    document.addEventListener("click", clickModal);
-  }, [activeModal]);
+    return () => document.removeEventListener("mousedown", clickModal);
+  }, []);
+
+  useEffect(() => {
+    console.log(title);
+  }, [title, description, date]);
+
+  useEffect(() => {
+    console.log(todoList);
+  }, [todoList]);
   return (
     <ModalWrapper ref={modalRef}>
       <article className="inputs">
-        <input className="title" placeholder="Task name here..."></input>
-        <input className="description" placeholder="Description"></input>
+        <input
+          className="title"
+          placeholder="Task name here..."
+          onChange={(e) =>
+            setTitle((): string => {
+              return e.target.value;
+            })
+          }></input>
+        <input
+          className="description"
+          placeholder="Description"
+          onChange={(e) => {
+            setDescription((): string => {
+              return e.target.value;
+            });
+          }}></input>
       </article>
       <footer>
         <article className="left">
@@ -35,6 +78,7 @@ export const AddTaskModal: React.FC<Props> = ({
             <BiCalendar className="btn-icon" />
             Due Date
           </button>
+
           <button className="btn">
             <BiUser className="btn-icon" />
             Assign To
@@ -42,7 +86,9 @@ export const AddTaskModal: React.FC<Props> = ({
         </article>
         <article className="right">
           <button className="btn">Cancel</button>
-          <button className="task-btn">Add Task</button>
+          <button className="task-btn" onClick={handleSubmit}>
+            Add Task
+          </button>
         </article>
       </footer>
     </ModalWrapper>

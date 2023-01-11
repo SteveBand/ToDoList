@@ -24,7 +24,6 @@ export const NavConatiner = styled.article`
   div {
     padding: 0 15px 0 15px;
     font-size: 23px;
-    //color: #8084a5;
   }
 `;
 

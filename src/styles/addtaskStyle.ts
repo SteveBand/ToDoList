@@ -111,7 +111,7 @@ export const ModalWrapper = styled.section`
       scale: 105%;
     }
   }
-  
+
   .btn-icon {
     font-size: 18px;
     position: relative;
