@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { Wrapper } from "./checkboxStyle";
 import { AiOutlineCheck } from "react-icons/ai";
-export const CheckBox: React.FC = () => {
+
+type Props = {
+  id: string;
+};
+
+export const CheckBox: React.FC<Props> = ({ id }) => {
   const [onCheck, setOnCheck] = useState<boolean>(false);
 
   const handleClick = (): void => {

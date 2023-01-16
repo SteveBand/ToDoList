@@ -1,5 +1,5 @@
 import React from "react";
-import { AddTaskWrapper } from "../styles/addtaskStyle";
+import { AddTaskWrapper } from "../../styles/addtaskStyle";
 
 interface Props {
   activeModal: boolean;

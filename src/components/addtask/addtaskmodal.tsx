@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { ModalWrapper } from "../styles/addtaskStyle";
+import { ModalWrapper } from "../../styles/addtaskStyle";
 import { BiCalendar, BiUser } from "react-icons/bi";
-import { List } from "./todo";
-import { formmatedDate } from "../utils/dateformat";
+import { List } from "../todo";
+import { formmatedDate } from "../../utils/dateformat";
 import { nanoid } from "nanoid";
 
 interface Props {
@@ -45,13 +45,8 @@ export const AddTaskModal: React.FC<Props> = ({
     return () => document.removeEventListener("mousedown", clickModal);
   }, []);
 
-  useEffect(() => {
-    console.log(title);
-  }, [title, description, date]);
+  useEffect(() => {}, [title, description, date]);
 
-  useEffect(() => {
-    console.log(todoList);
-  }, [todoList]);
   return (
     <ModalWrapper ref={modalRef}>
       <article className="inputs">

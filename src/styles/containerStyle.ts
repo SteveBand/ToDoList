@@ -42,3 +42,11 @@ export const Todo = styled.div<{ active: boolean }>`
   z-index: 1;
   cursor: pointer;
 `;
+
+export const Completed = styled.div<{ active: boolean }>`
+  height: inherit;
+  border-bottom: ${(prop) => (prop.active ? "2px solid #6632d1" : null)};
+  color: ${(prop) => (prop.active ? "black" : "#8084a5")};
+  z-index: 1;
+  cursor: pointer;
+`;
