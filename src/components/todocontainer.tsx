@@ -13,9 +13,16 @@ export type List = {
 interface Props {
   todoList: List;
   setTodoList: React.Dispatch<React.SetStateAction<List>>;
+  setCompletedTasks: React.Dispatch<React.SetStateAction<List>>;
+  completedTasks: List;
 }
 
-export const Todo: React.FC<Props> = ({ todoList, setTodoList }) => {
+export const Todo: React.FC<Props> = ({
+  todoList,
+  setTodoList,
+  completedTasks,
+  setCompletedTasks,
+}) => {
   useEffect(() => {}, [todoList]);
   return (
     <Container>
@@ -26,6 +33,8 @@ export const Todo: React.FC<Props> = ({ todoList, setTodoList }) => {
             setTodoList={setTodoList}
             item={item}
             key={item.id}
+            completedTasks={completedTasks}
+            setCompletedTasks={setCompletedTasks}
           />
         );
       })}

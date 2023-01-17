@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { CheckBox } from "../checkbox/checkbox";
 import { MoreBtn } from "../morebtn/morebtn";
 import { RowWrapper } from "./todorowStyle";
-import { List } from "../todo";
+import { List } from "../todocontainer";
 import { BiCalendar, BiUser } from "react-icons/bi";
 
-interface SingleObject {
+export interface SingleObject {
   title: string;
   description: string | undefined;
   date: string | undefined;
@@ -18,9 +18,17 @@ type Props = {
   setTodoList: React.Dispatch<React.SetStateAction<List>>;
   todoList: List;
   item: SingleObject;
+  setCompletedTasks: React.Dispatch<React.SetStateAction<List>>;
+  completedTasks: List;
 };
 
-export const TodoRow: React.FC<Props> = ({ item, todoList, setTodoList }) => {
+export const TodoRow: React.FC<Props> = ({
+  item,
+  todoList,
+  setTodoList,
+  completedTasks,
+  setCompletedTasks,
+}) => {
   const [edit, setEdit] = useState<boolean>(false);
   const [write, setWrite] = useState<string>("");
 
@@ -47,7 +55,14 @@ export const TodoRow: React.FC<Props> = ({ item, todoList, setTodoList }) => {
   useEffect(() => {}, [write]);
   return (
     <RowWrapper>
-      <CheckBox id={item.id} />
+      <CheckBox
+        id={item.id}
+        setCompletedTasks={setCompletedTasks}
+        completedTasks={completedTasks}
+        setTodoList={setTodoList}
+        todoList={todoList}
+        item={item}
+      />
       <MoreBtn edit={edit} setEdit={setEdit} id={item.id} />
       <section className="content">
         <article>

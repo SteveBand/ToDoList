@@ -10,7 +10,7 @@ interface Props {
 }
 
 export const MoreBtn: React.FC<Props> = ({ edit, setEdit, id }) => {
-  const [moreModal, setMoreModal] = useState(true);
+  const [moreModal, setMoreModal] = useState(false);
 
   const handleModal = (): void => {
     setMoreModal(!moreModal);

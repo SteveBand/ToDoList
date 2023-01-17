@@ -10,47 +10,51 @@ interface Props {
   setNotifications: React.Dispatch<React.SetStateAction<boolean>>;
   setCompleted: React.Dispatch<React.SetStateAction<boolean>>;
   setTodoContainer: React.Dispatch<React.SetStateAction<boolean>>;
+  notifications: boolean;
+  completed: boolean;
+  todoContainer: boolean;
 }
 
 export const NavBar: React.FC<Props> = ({
   setNotifications,
   setCompleted,
   setTodoContainer,
+  notifications,
+  completed,
+  todoContainer,
 }) => {
-  const [notificationsActive, setNotificationsActive] = useState<boolean>(true);
-  const [todoActive, setToDoActive] = useState<boolean>(false);
-  const [completedActive, setCompletedActive] = useState<boolean>(false);
+  // const [notificationsActive, setNotificationsActive] = useState<boolean>(true);
+  // const [todoActive, setToDoActive] = useState<boolean>(false);
+  // const [completedActive, setCompletedActive] = useState<boolean>(false);
 
   const handleNotifications = (): void => {
-    setToDoActive(false);
-    setCompletedActive(false);
-    setNotificationsActive(true);
+    setTodoContainer(false);
+    setCompleted(false);
+    setNotifications(true);
   };
 
   const handleTodo = (): void => {
-    setNotificationsActive(false);
-    setCompletedActive(false);
-    setToDoActive(true);
+    setNotifications(false);
+    setCompleted(false);
+    setTodoContainer(true);
   };
 
   const handleCompleted = (): void => {
-    setNotificationsActive(false);
-    setToDoActive(false);
-    setCompletedActive(true);
+    setNotifications(false);
+    setTodoContainer(false);
+    setCompleted(true);
   };
 
   return (
     <NavConatiner>
       <article>
-        <Notifications
-          active={notificationsActive}
-          onClick={handleNotifications}>
+        <Notifications active={notifications} onClick={handleNotifications}>
           <p>Notifications</p>
         </Notifications>
-        <Todo active={todoActive} onClick={handleTodo}>
+        <Todo active={todoContainer} onClick={handleTodo}>
           <p>Todo</p>
         </Todo>
-        <Completed active={completedActive} onClick={handleCompleted}>
+        <Completed active={completed} onClick={handleCompleted}>
           <p>Completed Tasks</p>
         </Completed>
       </article>
