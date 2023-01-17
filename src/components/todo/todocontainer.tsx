@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Container } from "../styles/todoStyle";
-import { TodoRow } from "./todorow/todorow";
+import { Container } from "./todoStyle";
+import { TodoRow } from "./todo-row/TodoRow";
 export type List = {
   title: string;
   description: string | undefined;

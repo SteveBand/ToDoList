@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Wrapper } from "../styles/containerStyle";
-import { AddTask } from "./addtask/addtask";
-import { AddTaskModal } from "./addtask/addtaskmodal";
-import { CompletedContainer } from "./completed/completed";
-import { NavBar } from "./navbar";
-import { Todo, List } from "./todocontainer";
+import { AddTask } from "./add-task/AddTask";
+import { AddTaskModal } from "./add-task/AddTaskModal";
+import { CompletedTasks } from "./completed/CompletedTasks";
+import { NavBar } from "./Navbar";
+import { Todo, List } from "./todo/todocontainer";
 export const Container: React.FC = () => {
   const [todoContainer, setTodoContainer] = useState<boolean>(true);
   const [notifications, setNotifications] = useState<boolean>(false);
@@ -22,9 +22,15 @@ export const Container: React.FC = () => {
         notifications={notifications}
         completed={completed}
         todoContainer={todoContainer}
+        todoList={todoList}
       />
       {todoContainer ? (
-        <Todo todoList={todoList} setTodoList={setTodoList} completedTasks={completedTasks} setCompletedTasks={setCompletedTasks}/>
+        <Todo
+          todoList={todoList}
+          setTodoList={setTodoList}
+          completedTasks={completedTasks}
+          setCompletedTasks={setCompletedTasks}
+        />
       ) : null}
       <AddTask activeModal={activeModal} setActiveModal={setActiveModal} />
       {activeModal ? (
@@ -35,7 +41,12 @@ export const Container: React.FC = () => {
           todoList={todoList}
         />
       ) : null}
-      {completed ? <CompletedContainer completedTasks={completedTasks} setCompletedTasks={setCompletedTasks} /> : null}
+      {completed ? (
+        <CompletedTasks
+          completedTasks={completedTasks}
+          setCompletedTasks={setCompletedTasks}
+        />
+      ) : null}
     </Wrapper>
   );
 };

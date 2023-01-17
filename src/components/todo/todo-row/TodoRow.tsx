@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { CheckBox } from "../checkbox/checkbox";
-import { MoreBtn } from "../morebtn/morebtn";
+import { CheckBox } from "../../checkbox/Checkbox";
+import { MoreBtn } from "../../more-btn/MoreBtn";
 import { RowWrapper } from "./todorowStyle";
 import { List } from "../todocontainer";
 import { BiCalendar, BiUser } from "react-icons/bi";

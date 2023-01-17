@@ -41,6 +41,25 @@ export const Todo = styled.div<{ active: boolean }>`
   color: ${(prop) => (prop.active ? "black" : "#8084a5")};
   z-index: 1;
   cursor: pointer;
+
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .num {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    width: 0;
+    font-size: 85%;
+    background-color: #dfe2f1;
+    border-radius: 50%;
+    margin-left: 6px;
+    opacity: 0.7;
+  }
 `;
 
 export const Completed = styled.div<{ active: boolean }>`

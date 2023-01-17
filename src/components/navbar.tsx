@@ -5,6 +5,7 @@ import {
   Todo,
   Completed,
 } from "../styles/containerStyle";
+import { List } from "./todo/todocontainer";
 
 interface Props {
   setNotifications: React.Dispatch<React.SetStateAction<boolean>>;
@@ -13,6 +14,7 @@ interface Props {
   notifications: boolean;
   completed: boolean;
   todoContainer: boolean;
+  todoList: List;
 }
 
 export const NavBar: React.FC<Props> = ({
@@ -22,11 +24,8 @@ export const NavBar: React.FC<Props> = ({
   notifications,
   completed,
   todoContainer,
+  todoList,
 }) => {
-  // const [notificationsActive, setNotificationsActive] = useState<boolean>(true);
-  // const [todoActive, setToDoActive] = useState<boolean>(false);
-  // const [completedActive, setCompletedActive] = useState<boolean>(false);
-
   const handleNotifications = (): void => {
     setTodoContainer(false);
     setCompleted(false);
@@ -52,7 +51,12 @@ export const NavBar: React.FC<Props> = ({
           <p>Notifications</p>
         </Notifications>
         <Todo active={todoContainer} onClick={handleTodo}>
-          <p>Todo</p>
+          <div className="content">
+            <p>Todo</p>
+            {todoList.length > 0 ? (
+              <div className="num">{todoList.length}</div>
+            ) : null}
+          </div>
         </Todo>
         <Completed active={completed} onClick={handleCompleted}>
           <p>Completed Tasks</p>

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import { ModalWrapper } from "../../styles/addtaskStyle";
+import { ModalWrapper } from "./addtaskStyle";
 import { BiCalendar, BiUser } from "react-icons/bi";
-import { List } from "../todocontainer";
+import { List } from "../todo/todocontainer";
 import { formmatedDate } from "../../utils/dateformat";
 import { nanoid } from "nanoid";
 

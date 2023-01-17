@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Wrapper } from "./morebtnStyle";
 import { AiOutlineMore } from "react-icons/ai";
-import { MoreBtnModal } from "./morebtnModal";
+import { MoreBtnModal } from "./MoreBtnModal";
 
 interface Props {
   edit: boolean;

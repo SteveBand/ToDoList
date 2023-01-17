@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
-
 export const RowWrapper = styled.section`
-      width: 100%;
+  width: 100%;
   height: 100px;
   position: relative;
   display: flex;
@@ -57,4 +56,4 @@ export const RowWrapper = styled.section`
       margin-right: 5px;
     }
   }
-`
+`;

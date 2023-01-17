@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Wrapper } from "./checkboxStyle";
 import { AiOutlineCheck } from "react-icons/ai";
-import { List } from "../todocontainer";
-import { SingleObject } from "../todorow/todorow";
+import { List } from "../todo/todocontainer";
+import { SingleObject } from "../todo/todo-row/TodoRow";
+
 type Props = {
   id: string;
   setCompletedTasks: React.Dispatch<React.SetStateAction<List>>;
@@ -35,8 +36,8 @@ export const CheckBox: React.FC<Props> = ({
   };
 
   useEffect(() => {}, [completedTasks]);
-  console.log(completedTasks);
-  console.log(todoList);
+  //console.log(completedTasks);
+  //console.log(todoList);
   return (
     <Wrapper active={onCheck} onClick={handleClick}>
       <AiOutlineCheck className="check-icon" />
