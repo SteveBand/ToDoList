@@ -2,12 +2,8 @@ import React, { useEffect } from "react";
 import { ModalWrapper } from "./morebtnStyle";
 import { FiDelete } from "react-icons/fi";
 import { AiOutlineEdit } from "react-icons/ai";
+import { Props } from "./morebtnTypes";
 
-interface Props {
-  edit: boolean;
-  setEdit: React.Dispatch<React.SetStateAction<boolean>>;
-  id: string;
-}
 export const MoreBtnModal: React.FC<Props> = ({ edit, setEdit, id }) => {
   const handleEdit = (): void => {
     if (id) {

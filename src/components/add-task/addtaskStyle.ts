@@ -32,7 +32,7 @@ export const ModalWrapper = styled.section`
   height: 200px;
   bottom: -5%;
   left: -5%;
-  z-index: 1;
+  z-index: 20;
   border-radius: 15px;
   background-color: white;
   box-shadow: inset 0 0 2px gray;

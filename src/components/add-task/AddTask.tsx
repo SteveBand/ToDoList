@@ -1,10 +1,6 @@
 import React from "react";
 import { AddTaskWrapper } from "./addtaskStyle";
-
-interface Props {
-  activeModal: boolean;
-  setActiveModal: React.Dispatch<React.SetStateAction<boolean>>;
-}
+import { Props } from "./addtaskTypes";
 
 export const AddTask: React.FC<Props> = ({ activeModal, setActiveModal }) => {
   const handleModal = (): void => {

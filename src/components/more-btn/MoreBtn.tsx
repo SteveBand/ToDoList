@@ -2,12 +2,7 @@ import React, { useState } from "react";
 import { Wrapper } from "./morebtnStyle";
 import { AiOutlineMore } from "react-icons/ai";
 import { MoreBtnModal } from "./MoreBtnModal";
-
-interface Props {
-  edit: boolean;
-  setEdit: React.Dispatch<React.SetStateAction<boolean>>;
-  id: string;
-}
+import { Props } from "./morebtnTypes";
 
 export const MoreBtn: React.FC<Props> = ({ edit, setEdit, id }) => {
   const [moreModal, setMoreModal] = useState(false);

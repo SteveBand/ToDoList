@@ -1,23 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   NavConatiner,
   Notifications,
   Todo,
   Completed,
 } from "../styles/containerStyle";
-import { List } from "./todo/todocontainer";
+import { NavProps } from "../globalTypes";
 
-interface Props {
-  setNotifications: React.Dispatch<React.SetStateAction<boolean>>;
-  setCompleted: React.Dispatch<React.SetStateAction<boolean>>;
-  setTodoContainer: React.Dispatch<React.SetStateAction<boolean>>;
-  notifications: boolean;
-  completed: boolean;
-  todoContainer: boolean;
-  todoList: List;
-}
-
-export const NavBar: React.FC<Props> = ({
+export const NavBar: React.FC<NavProps> = ({
   setNotifications,
   setCompleted,
   setTodoContainer,
@@ -25,23 +15,28 @@ export const NavBar: React.FC<Props> = ({
   completed,
   todoContainer,
   todoList,
+  currentPage,
+  setCurrentPage,
 }) => {
   const handleNotifications = (): void => {
     setTodoContainer(false);
     setCompleted(false);
     setNotifications(true);
+    setCurrentPage(1);
   };
 
   const handleTodo = (): void => {
     setNotifications(false);
     setCompleted(false);
     setTodoContainer(true);
+    setCurrentPage(1);
   };
 
   const handleCompleted = (): void => {
     setNotifications(false);
     setTodoContainer(false);
     setCompleted(true);
+    setCurrentPage(1);
   };
 
   return (

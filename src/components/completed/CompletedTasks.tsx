@@ -1,21 +1,31 @@
-import React, { useState, useEffect } from "react";
+import React, { useMemo } from "react";
 import { CompleteWrapper } from "./completedStyle";
-import { List } from "../todo/todocontainer";
 import { CompletedSingleTask } from "./CompletedSingleTask";
-interface Props {
-  setCompletedTasks: React.Dispatch<React.SetStateAction<List>>;
-  completedTasks: List;
-}
+import { Pages } from "../pages/Pages";
+import { Props } from "./completedTasksTypes";
 
 export const CompletedTasks: React.FC<Props> = ({
   completedTasks,
-  setCompletedTasks,
+  todoList,
+  currentPage,
+  setCurrentPage,
 }) => {
+  const newArr = useMemo(() => {
+    return completedTasks.slice(currentPage * 6 - 6, currentPage * 6);
+  }, [currentPage, completedTasks]);
+
   return (
     <CompleteWrapper>
-      {completedTasks.map((item) => {
-        return <CompletedSingleTask item={item} />;
+      {newArr.map((item) => {
+        return <CompletedSingleTask item={item} key={item.id} />;
       })}
+      <Pages
+        todoList={todoList}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        setDiffNum={6}
+        list={completedTasks}
+      />
     </CompleteWrapper>
   );
 };

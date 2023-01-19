@@ -4,7 +4,8 @@ import { AddTask } from "./add-task/AddTask";
 import { AddTaskModal } from "./add-task/AddTaskModal";
 import { CompletedTasks } from "./completed/CompletedTasks";
 import { NavBar } from "./Navbar";
-import { Todo, List } from "./todo/todocontainer";
+import { Todo } from "./todo/todocontainer";
+import { List } from "../globalTypes";
 export const Container: React.FC = () => {
   const [todoContainer, setTodoContainer] = useState<boolean>(true);
   const [notifications, setNotifications] = useState<boolean>(false);
@@ -12,7 +13,9 @@ export const Container: React.FC = () => {
   const [todoList, setTodoList] = useState<List>([]);
   const [activeModal, setActiveModal] = useState<boolean>(false);
   const [completedTasks, setCompletedTasks] = useState<List>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
 
+  useEffect(() => {}, [completedTasks]);
   return (
     <Wrapper>
       <NavBar
@@ -23,6 +26,8 @@ export const Container: React.FC = () => {
         completed={completed}
         todoContainer={todoContainer}
         todoList={todoList}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
       />
       {todoContainer ? (
         <Todo
@@ -30,9 +35,10 @@ export const Container: React.FC = () => {
           setTodoList={setTodoList}
           completedTasks={completedTasks}
           setCompletedTasks={setCompletedTasks}
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
         />
       ) : null}
-      <AddTask activeModal={activeModal} setActiveModal={setActiveModal} />
       {activeModal ? (
         <AddTaskModal
           activeModal={activeModal}
@@ -43,10 +49,14 @@ export const Container: React.FC = () => {
       ) : null}
       {completed ? (
         <CompletedTasks
+          currentPage={currentPage}
+          todoList={todoList}
           completedTasks={completedTasks}
           setCompletedTasks={setCompletedTasks}
+          setCurrentPage={setCurrentPage}
         />
       ) : null}
+      <AddTask activeModal={activeModal} setActiveModal={setActiveModal} />
     </Wrapper>
   );
 };

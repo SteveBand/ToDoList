@@ -1,33 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { CheckBox } from "../../checkbox/Checkbox";
 import { MoreBtn } from "../../more-btn/MoreBtn";
 import { RowWrapper } from "./todorowStyle";
-import { List } from "../todocontainer";
 import { BiCalendar, BiUser } from "react-icons/bi";
+import { SingleRowProps } from "../todoTypes";
 
-export interface SingleObject {
-  title: string;
-  description: string | undefined;
-  date: string | undefined;
-  AssignedTo?: string;
-  completed: boolean;
-  id: string;
-}
-
-type Props = {
-  setTodoList: React.Dispatch<React.SetStateAction<List>>;
-  todoList: List;
-  item: SingleObject;
-  setCompletedTasks: React.Dispatch<React.SetStateAction<List>>;
-  completedTasks: List;
-};
-
-export const TodoRow: React.FC<Props> = ({
+export const TodoRow: React.FC<SingleRowProps> = ({
   item,
   todoList,
   setTodoList,
   completedTasks,
   setCompletedTasks,
+  newArr,
 }) => {
   const [edit, setEdit] = useState<boolean>(false);
   const [write, setWrite] = useState<string>("");
@@ -44,15 +28,13 @@ export const TodoRow: React.FC<Props> = ({
         completed: item.completed,
         id: item.id,
       };
-      let newList = [...todoList];
-      let index = todoList.findIndex((n) => n === item);
+      let newList = [...newArr];
+      let index = newArr.findIndex((n) => n === item);
       newList.splice(index, 1, newRow);
       setTodoList(newList);
       setEdit(false);
     }
   };
-
-  useEffect(() => {}, [write]);
   return (
     <RowWrapper>
       <CheckBox
@@ -62,6 +44,7 @@ export const TodoRow: React.FC<Props> = ({
         setTodoList={setTodoList}
         todoList={todoList}
         item={item}
+        newArr={newArr}
       />
       <MoreBtn edit={edit} setEdit={setEdit} id={item.id} />
       <section className="content">

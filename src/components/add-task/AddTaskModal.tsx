@@ -1,18 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ModalWrapper } from "./addtaskStyle";
 import { BiCalendar, BiUser } from "react-icons/bi";
-import { List } from "../todo/todocontainer";
 import { formmatedDate } from "../../utils/dateformat";
 import { nanoid } from "nanoid";
+import { AddTaskModalProps } from "./addtaskTypes";
 
-interface Props {
-  activeModal: boolean;
-  setActiveModal: React.Dispatch<React.SetStateAction<boolean>>;
-  setTodoList: React.Dispatch<React.SetStateAction<List>>;
-  todoList: List;
-}
-
-export const AddTaskModal: React.FC<Props> = ({
+export const AddTaskModal: React.FC<AddTaskModalProps> = ({
   activeModal,
   setActiveModal,
   setTodoList,

@@ -1,13 +1,9 @@
 import React from "react";
 import { SingleTaskWrapper } from "./completedStyle";
-import { SingleObject } from "../todo/todo-row/TodoRow";
-import { BiCalendar, BiUser } from "react-icons/bi";
+import { BiUser } from "react-icons/bi";
+import { SingleTaskProps } from "./completedTasksTypes";
 
-interface Props {
-  item: SingleObject;
-}
-
-export const CompletedSingleTask: React.FC<Props> = ({ item }) => {
+export const CompletedSingleTask: React.FC<SingleTaskProps> = ({ item }) => {
   return (
     <SingleTaskWrapper key={item.id}>
       <article>
