@@ -17,26 +17,31 @@ export const Wrapper = styled.div`
 export const ModalWrapper = styled.section`
   position: absolute;
   right: -25%;
-  width: 50px;
-  height: 70px;
+  min-width: 50px;
   box-shadow: 0px 0px 11px 2px rgba(0, 0, 0, 0.43);
   display: flex;
-  justify-content: center;
+  align-items: center;
   flex-direction: column-reverse;
-  justify-content: space-evenly;
   background-color: white;
   z-index: 5;
-
+  font-family: "Josefin Sans", sans-serif;
+  color: black;
+  overflow: hidden;
   .row {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 30px;
+    min-height: 30px;
     background-color: white;
-
+    font-size: 14px;
+    padding: 0 5px;
     &:hover {
-      background-color: rgba(0, 0, 0, 0.09);
+      transition: all 0.3s ease-in-out;
+      background-color: rgba(0, 0, 0, 0.06);
+      scale: 105%;
+      background-color: black;
+      color: white;
     }
   }
 `;

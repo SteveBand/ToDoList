@@ -9,12 +9,11 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
   activeModal,
   setActiveModal,
   setTodoList,
-  todoList,
 }) => {
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const [date, setDate] = useState<string>();
-  let modalRef = useRef<React.RefObject<HTMLElement> | any>();
+  let modalRef = useRef() as React.MutableRefObject<HTMLInputElement>;
 
   const handleSubmit = async () => {
     let newTodo = {
