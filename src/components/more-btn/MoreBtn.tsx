@@ -4,7 +4,7 @@ import { AiOutlineMore } from "react-icons/ai";
 import { MoreBtnModal } from "./MoreBtnModal";
 import { Props } from "./types";
 
-export const MoreBtn: React.FC<Props> = ({ edit, setEdit, id }) => {
+export const MoreBtn: React.FC<Props> = ({ edit, setEdit, id, todoList, setTodoList }) => {
   const [moreModal, setMoreModal] = useState(false);
 
   const handleModal = (): void => {
@@ -15,7 +15,13 @@ export const MoreBtn: React.FC<Props> = ({ edit, setEdit, id }) => {
     <Wrapper>
       <AiOutlineMore className="more-icon" onClick={handleModal} />
       {moreModal ? (
-        <MoreBtnModal edit={edit} setEdit={setEdit} id={id} />
+        <MoreBtnModal
+          edit={edit}
+          setEdit={setEdit}
+          id={id}
+          todoList={todoList}
+          setTodoList={setTodoList}
+        />
       ) : null}
     </Wrapper>
   );

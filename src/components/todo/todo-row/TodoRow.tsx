@@ -46,7 +46,13 @@ export const TodoRow: React.FC<SingleRowProps> = ({
         item={item}
         newArr={newArr}
       />
-      <MoreBtn edit={edit} setEdit={setEdit} id={item.id} />
+      <MoreBtn
+        edit={edit}
+        setEdit={setEdit}
+        id={item.id}
+        todoList={todoList}
+        setTodoList={setTodoList}
+      />
       <section className="content">
         <article>
           {edit ? (

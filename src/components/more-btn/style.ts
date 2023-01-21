@@ -25,6 +25,8 @@ export const ModalWrapper = styled.section`
   flex-direction: column-reverse;
   justify-content: space-evenly;
   background-color: white;
+  z-index: 5;
+
   .row {
     width: 100%;
     display: flex;
