@@ -4,7 +4,7 @@ import { AddTask } from "./add-task/AddTask";
 import { AddTaskModal } from "./add-task/AddTaskModal";
 import { CompletedTasks } from "./completed/CompletedTasks";
 import { NavBar } from "./Navbar";
-import { Todo } from "./todo/todocontainer";
+import { Todo } from "./todo/TodoContainer";
 import { List } from "../globalTypes";
 export const Container: React.FC = () => {
   const [todoContainer, setTodoContainer] = useState<boolean>(true);

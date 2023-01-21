@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { CheckBox } from "../../checkbox/Checkbox";
 import { MoreBtn } from "../../more-btn/MoreBtn";
-import { RowWrapper } from "./todorowStyle";
+import { RowWrapper } from "./style";
 import { BiCalendar, BiUser } from "react-icons/bi";
-import { SingleRowProps } from "../todoTypes";
+import { SingleRowProps } from "../types";
 
 export const TodoRow: React.FC<SingleRowProps> = ({
   item,

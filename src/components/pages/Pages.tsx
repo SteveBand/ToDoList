@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { PagesRow } from "./pagesStyle";
-import { Props } from "./pagesTypes";
+import { PagesRow } from "./style";
+import { Props } from "./types";
 
 export const Pages: React.FC<Props> = ({
   todoList,
@@ -8,6 +8,7 @@ export const Pages: React.FC<Props> = ({
   setCurrentPage,
   setDiffNum,
   list,
+  secondList,
 }) => {
   const [numOfPages, setNumOfPages] = useState<number>(0);
 
@@ -25,7 +26,7 @@ export const Pages: React.FC<Props> = ({
       btnArray.push(num);
     }
     return btnArray;
-  }, [numOfPages, list]);
+  }, [numOfPages, list, secondList]);
 
   useEffect(() => {}, [currentPage]);
 

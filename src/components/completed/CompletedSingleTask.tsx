@@ -1,7 +1,7 @@
 import React from "react";
-import { SingleTaskWrapper } from "./completedStyle";
+import { SingleTaskWrapper } from "./style";
 import { BiUser } from "react-icons/bi";
-import { SingleTaskProps } from "./completedTasksTypes";
+import { SingleTaskProps } from "./types";
 
 export const CompletedSingleTask: React.FC<SingleTaskProps> = ({ item }) => {
   return (

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Wrapper } from "./checkboxStyle";
+import { Wrapper } from "./style";
 import { AiOutlineCheck } from "react-icons/ai";
-import { Props } from "./checkboxTypes";
+import { Props } from "./types";
 import { SingleObject } from "../../globalTypes";
 
 export const CheckBox: React.FC<Props> = ({

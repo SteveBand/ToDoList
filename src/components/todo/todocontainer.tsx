@@ -1,9 +1,9 @@
-import React, { useMemo } from "react";
-import { Container } from "./todoStyle";
+import React, { useEffect, useMemo } from "react";
+import { Container } from "./style";
 import { TodoRow } from "./todo-row/TodoRow";
 import { Pages } from "../pages/Pages";
 import { List } from "../../globalTypes";
-import { Props } from "./todoTypes";
+import { Props } from "./types";
 
 export const Todo: React.FC<Props> = ({
   todoList,
@@ -13,9 +13,9 @@ export const Todo: React.FC<Props> = ({
   currentPage,
   setCurrentPage,
 }) => {
-  const newArr: List = useMemo(() => {
+  let newArr: List = useMemo(() => {
     return todoList.slice(currentPage * 3 - 3, currentPage * 3);
-  }, [currentPage, todoList]);
+  }, [currentPage, todoList, completedTasks]);
 
   return (
     <Container>
@@ -38,6 +38,7 @@ export const Todo: React.FC<Props> = ({
         setCurrentPage={setCurrentPage}
         setDiffNum={3}
         list={todoList}
+        secondList={completedTasks}
       />
     </Container>
   );

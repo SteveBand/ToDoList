@@ -1,8 +1,8 @@
 import React, { useMemo } from "react";
-import { CompleteWrapper } from "./completedStyle";
+import { CompleteWrapper } from "./style";
 import { CompletedSingleTask } from "./CompletedSingleTask";
 import { Pages } from "../pages/Pages";
-import { Props } from "./completedTasksTypes";
+import { Props } from "./types";
 
 export const CompletedTasks: React.FC<Props> = ({
   completedTasks,

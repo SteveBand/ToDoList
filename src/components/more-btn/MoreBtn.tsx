@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Wrapper } from "./morebtnStyle";
+import { Wrapper } from "./style";
 import { AiOutlineMore } from "react-icons/ai";
 import { MoreBtnModal } from "./MoreBtnModal";
-import { Props } from "./morebtnTypes";
+import { Props } from "./types";
 
 export const MoreBtn: React.FC<Props> = ({ edit, setEdit, id }) => {
   const [moreModal, setMoreModal] = useState(false);

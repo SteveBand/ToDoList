@@ -6,4 +6,5 @@ export interface Props {
   currentPage: number;
   setDiffNum: number;
   list: List;
+  secondList?: List;
 }

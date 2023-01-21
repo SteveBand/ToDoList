@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
-import { ModalWrapper } from "./addtaskStyle";
+import { ModalWrapper } from "./style";
 import { BiCalendar, BiUser } from "react-icons/bi";
 import { formmatedDate } from "../../utils/dateformat";
 import { nanoid } from "nanoid";
-import { AddTaskModalProps } from "./addtaskTypes";
+import { AddTaskModalProps } from "./types";
 
 export const AddTaskModal: React.FC<AddTaskModalProps> = ({
   activeModal,
